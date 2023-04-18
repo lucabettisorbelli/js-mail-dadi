@@ -1,33 +1,29 @@
-let bottone = document.getElementById('bottone');
 
-// bottone.addEventListener('click', function() {
-    
-//     let emailValide = ["lucabetti@gmail.com", "marcorossi@gmail.com", "mariobianchi@gmail.com", "francoverdi@gmail.com"];
-    
-//     let email = document.getElementById('email').value;
+// array di email valide
+let emailValide = ["lucabetti@gmail.com", "marcorossi@gmail.com", "mariobianchi@gmail.com", "francoverdi@gmail.com"];
 
-//     for (let i = 0; i < emailValide.length; i++) {
-
-//         const emailCorrente = emailValide[i]
-        
-//         if (emailValide.includes(email)) {
-//             console.log('Email valida');
-//         } else {
-//             console.log('Email errata');
-//         }
-//         console.log(emailCorrente);
-//     } 
-// });
-
+// bottone
+let bottone = document.getElementById("bottone");
 
 bottone.addEventListener('click', function() {
-    let emailValide = ["lucabetti@gmail.com", "marcorossi@gmail.com", "mariobianchi@gmail.com", "francoverdi@gmail.com"];
-    let email = document.getElementById('email').value;
 
-    if (emailValide.includes(email)) {
-        console.log('Email valida');
+    // valore email inserita
+    let emailUtente = document.getElementById("email").value;
+
+    // email da stampare
+    let emailTrovata;
+
+    // ciclo for che compara le email valide con email utente, nel caso convalida emailTrovata ed esce fuori
+    for (let i = 0; i < emailValide.length; i++) {
+        if (emailValide[i] == emailUtente) {
+            emailTrovata = true;
+        }
+    }
+
+    if (emailTrovata) {
+        document.getElementById("risultato").innerText = `la tua email (${emailUtente}) è valida`
     } else {
-        console.log('Email errata');
+        document.getElementById("risultato").innerText = "la tua email non è valida"
     }
 });
 
